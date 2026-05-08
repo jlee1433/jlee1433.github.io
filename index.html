@@ -1,0 +1,436 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Jieun Lee — UC Riverside</title>
+  <meta name="description" content="Jieun Lee, Ph.D. Candidate in Political Science at UC Riverside. Research on partisan dehumanization, immigration attitudes, and American political behavior.">
+
+  <!-- Font Awesome (icons for email, GitHub, ORCID, etc.) -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
+
+  <!-- Inter font: clean, academic -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+
+  <style>
+    /* ========================================================
+       EDIT YOUR LINKS HERE — change these placeholders to your real URLs.
+       Search the file for the exact strings if you'd rather edit inline.
+       Email:    jlee1433@ucr.edu
+       GitHub:   jlee1433
+       Homepage: this site itself, no need to set
+       ORCID:    0009-0005-8654-1688
+       Scholar:  jlee1433
+    ======================================================== */
+
+    :root {
+      --text:        #1a1a1a;
+      --muted:       #555;
+      --rule:        #e2e2e2;
+      --accent:      #0e4a8a;        /* deep academic blue */
+      --bg:          #ffffff;
+      --bg-soft:     #fafafa;
+    }
+
+    *, *::before, *::after { box-sizing: border-box; }
+    html { scroll-behavior: smooth; }
+    body {
+      margin: 0;
+      font-family: 'Inter', -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+      color: var(--text);
+      background: var(--bg);
+      line-height: 1.65;
+      -webkit-font-smoothing: antialiased;
+    }
+    a { color: var(--accent); text-decoration: none; }
+    a:hover { text-decoration: underline; }
+
+    .container { max-width: 880px; margin: 0 auto; padding: 0 28px; }
+
+    /* ---------- Top nav ---------- */
+    nav.topnav {
+      position: sticky; top: 0; z-index: 50;
+      background: rgba(255,255,255,0.92);
+      backdrop-filter: blur(8px);
+      border-bottom: 1px solid var(--rule);
+    }
+    nav.topnav .inner {
+      max-width: 880px; margin: 0 auto; padding: 12px 28px;
+      display: flex; gap: 22px; flex-wrap: wrap;
+      font-size: 14px; font-weight: 500;
+    }
+    nav.topnav a {
+      color: var(--muted);
+      padding: 4px 2px;
+      border-bottom: 2px solid transparent;
+      transition: color 0.15s ease, border-color 0.15s ease;
+    }
+    nav.topnav a:hover { color: var(--accent); text-decoration: none; }
+    nav.topnav a.active { color: var(--accent); border-bottom-color: var(--accent); }
+
+    /* Tabbed sections: only the .active one is visible. */
+    .tab-section { display: none; }
+    .tab-section.active { display: block; animation: fade-in 0.18s ease; }
+    @keyframes fade-in {
+      from { opacity: 0; transform: translateY(4px); }
+      to   { opacity: 1; transform: translateY(0); }
+    }
+
+    /* ---------- Hero ---------- */
+    .hero { display: grid; grid-template-columns: 200px 1fr; gap: 36px; align-items: center; padding: 56px 0 40px; }
+    .hero-photo {
+      width: 200px; height: 200px; border-radius: 50%;
+      background: var(--bg-soft);
+      border: 1px solid var(--rule);
+      display: flex; align-items: center; justify-content: center;
+      font-size: 64px; font-weight: 600; color: #aaa;
+      overflow: hidden;
+    }
+    .hero-photo img { width: 100%; height: 100%; object-fit: cover; }
+    .hero h1 { margin: 0 0 4px; font-size: 32px; font-weight: 700; letter-spacing: -0.01em; }
+    .hero .role { margin: 0 0 4px; color: var(--muted); font-size: 16px; }
+    .hero .affil { margin: 0 0 16px; color: var(--muted); font-size: 15px; }
+    .icons { display: flex; flex-wrap: wrap; gap: 14px; font-size: 18px; }
+    .icons a {
+      color: var(--muted);
+      width: 36px; height: 36px;
+      display: inline-flex; align-items: center; justify-content: center;
+      border: 1px solid var(--rule); border-radius: 50%;
+      transition: all 0.15s ease;
+    }
+    .icons a:hover { color: var(--accent); border-color: var(--accent); text-decoration: none; }
+    .icons a[title] { position: relative; }
+
+    @media (max-width: 640px) {
+      .hero { grid-template-columns: 1fr; text-align: center; }
+      .hero-photo { margin: 0 auto; width: 160px; height: 160px; font-size: 48px; }
+      .icons { justify-content: center; }
+    }
+
+    /* ---------- Sections ---------- */
+    section { padding: 32px 0; border-top: 1px solid var(--rule); }
+    section:first-of-type { border-top: 0; }
+    section h2 {
+      margin: 0 0 20px;
+      font-size: 22px; font-weight: 600; letter-spacing: -0.005em;
+    }
+    section p { margin: 0 0 12px; }
+
+    /* ---------- Lists / entries ---------- */
+    .entries { list-style: none; padding: 0; margin: 0; }
+    .entries li {
+      display: grid; grid-template-columns: 96px 1fr; gap: 18px;
+      padding: 10px 0;
+      border-bottom: 1px dashed var(--rule);
+    }
+    .entries li:last-child { border-bottom: 0; }
+    .entries .year { color: var(--muted); font-variant-numeric: tabular-nums; font-size: 14px; padding-top: 1px; }
+    .entries .body strong { font-weight: 600; }
+    .entries .body em { color: var(--muted); }
+
+    /* Publications get a slightly different layout (no year column;
+       year is part of the citation). */
+    .pubs { list-style: none; padding: 0; margin: 0; }
+    .pubs li {
+      padding: 14px 0;
+      border-bottom: 1px dashed var(--rule);
+    }
+    .pubs li:last-child { border-bottom: 0; }
+    .pubs .title { font-weight: 600; }
+    .pubs .meta { color: var(--muted); font-size: 14.5px; margin-top: 2px; }
+    .pubs .links { margin-top: 6px; font-size: 13.5px; }
+    .pubs .links a {
+      display: inline-block;
+      padding: 2px 10px;
+      margin-right: 6px;
+      border: 1px solid var(--rule);
+      border-radius: 999px;
+      color: var(--muted);
+    }
+    .pubs .links a:hover { color: var(--accent); border-color: var(--accent); text-decoration: none; }
+    .pubs .me { background: linear-gradient(transparent 60%, #fff3a8 60%); padding: 0 1px; }
+
+    /* Status pill for forthcoming / under review */
+    .status {
+      display: inline-block;
+      font-size: 12px; font-weight: 600;
+      padding: 2px 9px; border-radius: 999px;
+      background: #eaf3ff; color: var(--accent);
+      margin-left: 6px; vertical-align: 1px;
+    }
+    .status.review { background: #fff4e0; color: #8a5a00; }
+    .status.draft  { background: #f0f0f0; color: #666; }
+
+    /* Subsection heading inside a section */
+    h3.sub { margin: 18px 0 8px; font-size: 15px; font-weight: 600; color: var(--muted); text-transform: uppercase; letter-spacing: 0.04em; }
+
+    /* News list */
+    .news li { grid-template-columns: 110px 1fr; }
+
+    /* Footer */
+    footer { padding: 40px 0 60px; color: var(--muted); font-size: 13px; text-align: center; }
+    footer a { color: var(--muted); }
+  </style>
+</head>
+<body>
+
+<nav class="topnav">
+  <div class="inner">
+    <a href="#about">About</a>
+    <a href="#research">Research</a>
+    <a href="#teaching">Teaching</a>
+    <a href="#others">Others</a>
+    <a href="#cv">CV</a>
+  </div>
+</nav>
+
+<main class="container">
+
+  <!-- ============== HERO ============== -->
+  <header class="hero">
+    <!-- Replace the placeholder with: <img src="profile.jpg" alt="Jieun Lee"> -->
+    <div class="hero-photo"><img src="profile.jpg" alt="Jieun Lee"></div>
+    <div>
+      <h1>Jieun Lee</h1>
+      <p class="role">Ph.D. Candidate, Political Science</p>
+      <p class="affil">University of California, Riverside</p>
+      <div class="icons">
+        <a href="mailto:jlee1433@ucr.edu" title="Email" aria-label="Email"><i class="fa-solid fa-envelope"></i></a>
+        <a href="cv.pdf" title="CV (PDF)" aria-label="CV"><i class="fa-solid fa-file-lines"></i></a>
+        <a href="https://scholar.google.com/citations?user=YOUR-SCHOLAR-ID" title="Google Scholar" aria-label="Scholar"><i class="fa-brands fa-google-scholar"></i></a>
+        <a href="https://orcid.org/XXXX-XXXX-XXXX-XXXX" title="ORCID" aria-label="ORCID"><i class="fa-brands fa-orcid"></i></a>
+        <a href="https://github.com/YOUR-GITHUB-USERNAME" title="GitHub" aria-label="GitHub"><i class="fa-brands fa-github"></i></a>
+      </div>
+    </div>
+  </header>
+
+  <!-- ============== ABOUT ============== -->
+  <section id="about" class="tab-section active">
+    <h2>About</h2>
+    <p>
+      I am a Ph.D. candidate in the Department of Political Science at UC Riverside, with research interests in <strong>American public opinion</strong and <strong>political behavior. My dissertation, <em>Consequences of and Remedies for Partisan Dehumanization in the U.S.</em>, is co-chaired by Jennifer Merolla and Daniel Biggers, with Cindy Kam, and supported by Russell Sage Foundation and Center for Ideas and Society.
+    </p>
+    <p>
+      My work has appeared in <em>PS: Political Science &amp; Politics</em>, with a recent paper conditionally accepted at the <em>American Political Science Review</em>. I use survey experiments, observational data, and revealed-preference election results to study how Americans perceive their political opponents and how those perceptions shape attitudes toward democracy, redistribution, and immigration.
+    </p>
+    <p>
+      I expect to be on the academic job market in 2026–2027.
+    </p>
+  </section>
+
+  <!-- ============== RESEARCH (Publications + Working Papers + Presentations) ============== -->
+  <section id="research" class="tab-section">
+    <h2>Research</h2>
+
+    <h3 class="sub">Peer-Reviewed Articles</h3>
+    <ul class="pubs">
+      <li>
+        <div class="title">American Immigration Attitudes and NIMBYism: Do Immigration Preferences Vary by Scale?</div>
+        <div class="meta"><span class="me">Lee, J.</span> &amp; Muttram, H. G. (2025). <em>PS: Political Science &amp; Politics</em>, 59(2), 320–328.</div>
+        <div class="links">
+          <a href="https://doi.org/10.1017/S1049096525101467"><i class="fa-solid fa-link"></i> DOI</a>
+        </div>
+      </li>
+      <li>
+        <div class="title">Economic Status and Voting Choices in the 2017 South Korean Presidential Election <em style="color:#888;font-style:normal">(in Korean)</em></div>
+        <div class="meta"><span class="me">Lee, J.</span> &amp; Kang, W.-T. (2020). <em>Journal of Korean Politics</em>, 29(3), 123–154.</div>
+        <div class="links">
+          <a href="https://www.kci.go.kr/kciportal/ci/sereArticleSearch/ciSereArtiView.kci?sereArticleSearchBean.artiId=ART002645638"><i class="fa-solid fa-link"></i> DOI</a>
+        </div>
+      </li>
+      <li>
+        <div class="title">Europeanization of Gender Equality Policy in Poland and Lithuania <em style="color:#888;font-style:normal">(in Korean)</em></div>
+        <div class="meta">Kim, M. &amp; <span class="me">Lee, J.</span> (2018). <em>Journal of Political Science and Communication</em>, 21(1), 63–98.</div>
+        <div class="links">
+          <a href="https://www.kci.go.kr/kciportal/ci/sereArticleSearch/ciSereArtiView.kci?sereArticleSearchBean.artiId=ART002319274"><i class="fa-solid fa-link"></i> DOI</a>
+        </div>
+      </li>
+    </ul>
+
+    <h3 class="sub">Forthcoming / Conditionally Accepted</h3>
+    <ul class="pubs">
+      <li>
+        <div class="title">Economic Self-Interest and Support for Redistribution: New Evidence Using Revealed-Preference Election Results Data</div>
+        <div class="meta"><span class="me">Lee, J.</span>, Baldwin, E. G., Markarian, G. A., &amp; Newman, B. J. <em>American Political Science Review.</em><span class="status">Conditionally Accepted</span></div>
+      </li>
+    </ul>
+
+    <h3 class="sub">Working Papers</h3>
+    <ul class="pubs">
+      <li>
+        <div class="title">Partisan Dehumanization and Its Negative Correlates: From Anti-democratic Attitudes to Political Evaluations</div>
+        <div class="meta"><span class="me">Lee, J.</span> <span class="status review">Under Review</span></div>
+      </li>
+      <li>
+        <div class="title">Framing Research as DEI-Related Increases Approval of Trump's Cuts to Federal Funding</div>
+        <div class="meta"><span class="me">Lee, J.</span>, Merolla, J. L., Dionne, K. Y., &amp; Brookes, M. <span class="status review">Under Review</span></div>
+      </li>
+      <li>
+        <div class="title">Citizen Support for Direct Democracy Backsliding in the U.S.</div>
+        <div class="meta">Biggers, D. R. &amp; <span class="me">Lee, J.</span> <span class="status draft">Draft on request</span></div>
+      </li>
+      <li>
+        <div class="title">Do People Care about Care? Priming Caregiving During the Pandemic and Support for Social Welfare Policies</div>
+        <div class="meta"><span class="me">Lee, J.</span>, Merolla, J. L., Greenlee, J. S., Cargile, I. A. M., &amp; VanSickle-Ward, R. <span class="status draft">Draft on request</span></div>
+      </li>
+      <li>
+        <div class="title">Plainly Speaking: How Scientific Communication of Political Science Research Can Increase Trust in Science</div>
+        <div class="meta">Merolla, J. L., Dionne, K. Y., Brookes, M., &amp; <span class="me">Lee, J.</span></div>
+      </li>
+      <li>
+        <div class="title">Dehumanization of Immigrants and Immigration Attitudes in the U.S.</div>
+        <div class="meta"><span class="me">Lee, J.</span>, Merolla, J. L., &amp; Muttram, H. G.</div>
+      </li>
+      <li>
+        <div class="title">Party Position and Party Leader Cue: Do People Follow Party Leader When They Claim Party Position Across Ideology?</div>
+        <div class="meta">Kim, D.-H. &amp; <span class="me">Lee, J.</span></div>
+      </li>
+      <li>
+        <div class="title">From Publication to Public: A Multi-Arm Field Experiment on Scientific Communication and Scholarly Impact</div>
+        <div class="meta">Dionne, K. Y., Merolla, J. L., Brookes, M., &amp; <span class="me">Lee, J.</span></div>
+      </li>
+    </ul>
+
+    <h3 class="sub">Conference Presentations</h3>
+    <ul class="entries">
+      <li>
+        <span class="year">2025</span>
+        <span class="body">
+          "Political Consequences of Partisan Dehumanization in the U.S." — ISPP; MPSA<br>
+          "American Immigration Attitudes and NIMBYism" — Southern California Political Behavior Conference, Riverside, CA
+        </span>
+      </li>
+      <li>
+        <span class="year">2024</span>
+        <span class="body">
+          "American Immigration Attitudes and NIMBYism" — UCR Mass Behavior Workshop, Riverside, CA<br>
+          "Citizen Support for Direct Democracy Backsliding in the U.S." — APSA<br>
+          "Prime and Effect: Priming Caregiving During the Pandemic and Support for Social Welfare Policies" — MPSA
+        </span>
+      </li>
+      <li>
+        <span class="year">2021</span>
+        <span class="body">"The Blue House E-petition System of Korea: A New Form of Going Public and Its Political Effects" — Korean Association of Party Studies Spring Conference, Virtual</span>
+      </li>
+      <li>
+        <span class="year">2017</span>
+        <span class="body">"Europeanization of Gender Equality Policy in Poland and Lithuania" — The 2018 Next Generation Social Scientist Academic Conference, Seoul, South Korea</span>
+      </li>
+    </ul>
+  </section>
+  <!-- ============== END RESEARCH ============== -->
+
+  <!-- ============== TEACHING ============== -->
+  <section id="teaching" class="tab-section">
+    <h2>Teaching</h2>
+
+    <h3 class="sub">Instructor</h3>
+    <ul class="entries">
+      <li><span class="year">2026 Summer</span><span class="body">Intro to American Politics, UC Riverside</span></li>
+      <li><span class="year">2023–2025</span><span class="body">Quant Camp for Incoming Graduate Students, UCR Graduate Division</span></li>
+    </ul>
+
+    <h3 class="sub">Teaching Assistant</h3>
+    <ul class="entries">
+      <li><span class="year">2024, 2025</span><span class="body">American Politics</span></li>
+      <li><span class="year">2024</span><span class="body">Politics of Race, Immigration, and Ethnicity in the U.S.</span></li>
+      <li><span class="year">2024</span><span class="body">Politics of the Global South</span></li>
+      <li><span class="year">2023</span><span class="body">Comparative Politics</span></li>
+      <li><span class="year">2023</span><span class="body">Labor and Globalization</span></li>
+      <li><span class="year">2022, 2024</span><span class="body">Theory and Methodology of Political Science</span></li>
+    </ul>
+  </section>
+
+  <!-- ============== OTHERS (Awards & Grants + Service) ============== -->
+  <section id="others" class="tab-section">
+    <h2>Others</h2>
+
+    <h3 class="sub">Awards &amp; Grants</h3>
+    <ul class="entries">
+      <li><span class="year">2026–27</span><span class="body">Dissertation Program Award, <em>UC Riverside Graduate Division</em> ($23,000)</span></li>
+      <li><span class="year">2025</span><span class="body">Dissertation Research Grant, <em>Russell Sage Foundation</em> ($15,000)</span></li>
+      <li><span class="year">2025</span><span class="body">Gabbert Research Award, <em>UCR Department of Political Science</em> ($2,000)</span></li>
+      <li><span class="year">2025</span><span class="body">Humanities Graduate Student Research Grant, <em>Center for Ideas and Society</em> ($500)</span></li>
+      <li><span class="year">2024</span><span class="body">APSA Conference Travel Grant, <em>Political Communication Section</em> ($500)</span></li>
+      <li><span class="year">2021–22</span><span class="body">Dean's Distinguished Fellowship, <em>UC Riverside</em> ($18,000)</span></li>
+      <li><span class="year">2020</span><span class="body">Outstanding Graduate Student Award, <em>Seoul National University</em></span></li>
+      <li><span class="year">2018</span><span class="body">Next Generation Social Scientist Award, <em>Korea National Research Foundation</em></span></li>
+    </ul>
+
+    <h3 class="sub">Service — Reviewer</h3>
+    <ul class="entries">
+      <li><span class="year">2026</span><span class="body"><em>Journal of Migration and Ethnic Studies</em></span></li>
+      <li><span class="year">2025</span><span class="body">Conference Abstract Reviewer, American Association for Public Opinion Research</span></li>
+    </ul>
+
+    <h3 class="sub">Service — Lab Management</h3>
+    <ul class="entries">
+      <li><span class="year">AY 2025–26</span><span class="body">Social Sciences Laboratory, UC Riverside — Lab Manager</span></li>
+      <li><span class="year">2024 Summer</span><span class="body">Identity and Politics Lab, UC Riverside — Lab Manager</span></li>
+    </ul>
+  </section>
+
+  <!-- ============== CV ============== -->
+  <section id="cv" class="tab-section">
+    <h2>CV</h2>
+    <p>
+      A full curriculum vitae is available as a <a href="cv.pdf"><i class="fa-solid fa-file-pdf"></i> PDF</a>. For inquiries, please reach me at
+      <a href="mailto:jlee1433@ucr.edu">jlee1433@ucr.edu</a>.
+    </p>
+  </section>
+
+</main>
+
+<footer>
+  &copy; <span id="year"></span> Jieun Lee · Built with HTML &amp; CSS · Hosted on
+  <a href="https://github.com/YOUR-GITHUB-USERNAME/YOUR-GITHUB-USERNAME.github.io">GitHub Pages</a>
+</footer>
+
+<script>
+  // ----- Footer year -----
+  document.getElementById('year').textContent = new Date().getFullYear();
+
+  // ----- Tab switching -----
+  // Each nav link points at a section ID (e.g., #research). Clicking a tab
+  // hides every .tab-section and shows the matching one. The URL hash is
+  // updated so tabs are bookmarkable and the back/forward buttons work.
+
+  const navLinks = document.querySelectorAll('nav.topnav a');
+  const sections = document.querySelectorAll('.tab-section');
+  const validIds = new Set(Array.from(sections).map(s => s.id));
+
+  function showTab(id) {
+    if (!validIds.has(id)) id = 'about';   // fallback
+    sections.forEach(s => s.classList.toggle('active', s.id === id));
+    navLinks.forEach(a => {
+      const target = a.getAttribute('href').replace('#', '');
+      a.classList.toggle('active', target === id);
+    });
+    // Scroll to top so the user always lands at the start of the tab.
+    window.scrollTo({ top: 0, behavior: 'smooth' });
+  }
+
+  navLinks.forEach(link => {
+    link.addEventListener('click', e => {
+      e.preventDefault();
+      const target = link.getAttribute('href').replace('#', '');
+      history.replaceState(null, '', '#' + target);
+      showTab(target);
+    });
+  });
+
+  // Initial state: open whatever tab the URL hash points at, else About.
+  const initial = window.location.hash ? window.location.hash.slice(1) : 'about';
+  showTab(initial);
+
+  // React to back/forward navigation.
+  window.addEventListener('hashchange', () => {
+    const tab = window.location.hash ? window.location.hash.slice(1) : 'about';
+    showTab(tab);
+  });
+</script>
+
+</body>
+</html>
