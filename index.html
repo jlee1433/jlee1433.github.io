@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Jieun Lee — UC Riverside</title>
+  <title>Jieun Lee (UCR)</title>
   <meta name="description" content="Jieun Lee, Ph.D. Candidate in Political Science at UC Riverside. Research on partisan dehumanization, immigration attitudes, and American political behavior.">
 
   <!-- Font Awesome (icons for email, GitHub, ORCID, etc.) -->
@@ -57,7 +57,7 @@
       border-bottom: 1px solid var(--rule);
     }
     nav.topnav .inner {
-      max-width: 880px; margin: 0 auto; padding: 12px 28px;
+      max-width: 1140px; margin: 0 auto; padding: 14px 28px;
       display: flex; gap: 22px; flex-wrap: wrap;
       font-size: 14px; font-weight: 500;
     }
@@ -69,6 +69,56 @@
     }
     nav.topnav a:hover { color: var(--accent); text-decoration: none; }
     nav.topnav a.active { color: var(--accent); border-bottom-color: var(--accent); }
+
+    /* ---------- Sidebar layout (profile left, content right) ---------- */
+    .layout {
+      max-width: 1140px; margin: 0 auto; padding: 40px 28px 0;
+      display: grid; grid-template-columns: 250px 1fr; gap: 56px;
+      align-items: start;
+    }
+    .sidebar {
+      position: sticky; top: 32px;
+      text-align: center;
+    }
+    .sidebar .avatar {
+      width: 168px; height: 168px; border-radius: 50%;
+      margin: 0 auto 18px;
+      background: var(--bg-soft);
+      border: 1px solid var(--rule);
+      overflow: hidden;
+    }
+    .sidebar .avatar img { width: 100%; height: 100%; object-fit: cover; display: block; }
+    .sidebar h1 { margin: 0 0 6px; font-size: 21px; font-weight: 700; letter-spacing: -0.01em; }
+    .sidebar .role { margin: 0 0 10px; color: var(--muted); font-size: 14px; }
+
+    .sidebar .meta-line {
+      margin: 0 0 4px;
+      color: var(--muted);
+      font-size: 13px;
+      display: flex; align-items: center; justify-content: center; gap: 6px;
+    }
+    .sidebar .meta-line:last-of-type { margin-bottom: 18px; }
+    .sidebar .meta-line i { color: #999; font-size: 12px; width: 12px; text-align: center; }
+
+    .sidebar .contact-list {
+      display: flex; flex-direction: column; align-items: flex-start;
+      gap: 9px; margin: 0 auto; width: fit-content;
+      text-align: left;
+    }
+    .sidebar .contact-list a {
+      display: flex; align-items: center; gap: 10px;
+      color: var(--muted); font-size: 13.5px; font-weight: 500;
+    }
+    .sidebar .contact-list a i { width: 16px; text-align: center; color: #999; font-size: 14px; }
+    .sidebar .contact-list a:hover { color: var(--accent); text-decoration: none; }
+    .sidebar .contact-list a:hover i { color: var(--accent); }
+
+    .content { min-width: 0; }
+
+    @media (max-width: 800px) {
+      .layout { grid-template-columns: 1fr; padding: 32px 20px 0; gap: 0; }
+      .sidebar { position: static; margin-bottom: 8px; }
+    }
 
     /* Tabbed sections: only the .active one is visible. */
     .tab-section { display: none; }
@@ -98,40 +148,8 @@
       to   { opacity: 1; transform: translateY(0); }
     }
 
-    /* ---------- Hero ---------- */
-    .hero { display: grid; grid-template-columns: 200px 1fr; gap: 36px; align-items: center; padding: 56px 0 40px; }
-    .hero-photo {
-      width: 200px; height: 200px; border-radius: 50%;
-      background: var(--bg-soft);
-      border: 1px solid var(--rule);
-      display: flex; align-items: center; justify-content: center;
-      font-size: 64px; font-weight: 600; color: #aaa;
-      overflow: hidden;
-    }
-    .hero-photo img { width: 100%; height: 100%; object-fit: cover; }
-    .hero h1 { margin: 0 0 4px; font-size: 32px; font-weight: 700; letter-spacing: -0.01em; }
-    .hero .role { margin: 0 0 4px; color: var(--muted); font-size: 16px; }
-    .hero .affil { margin: 0 0 16px; color: var(--muted); font-size: 15px; }
-    .icons { display: flex; flex-wrap: wrap; gap: 14px; font-size: 18px; }
-    .icons a {
-      color: var(--muted);
-      width: 36px; height: 36px;
-      display: inline-flex; align-items: center; justify-content: center;
-      border: 1px solid var(--rule); border-radius: 50%;
-      transition: all 0.15s ease;
-    }
-    .icons a:hover { color: var(--accent); border-color: var(--accent); text-decoration: none; }
-    .icons a[title] { position: relative; }
-
-    @media (max-width: 640px) {
-      .hero { grid-template-columns: 1fr; text-align: center; }
-      .hero-photo { margin: 0 auto; width: 160px; height: 160px; font-size: 48px; }
-      .icons { justify-content: center; }
-    }
-
     /* ---------- Sections ---------- */
-    section { padding: 32px 0; border-top: 1px solid var(--rule); }
-    section:first-of-type { border-top: 0; }
+    section { padding: 32px 0; }
     section h2 {
       margin: 0 0 20px;
       font-size: 22px; font-weight: 600; letter-spacing: -0.005em;
@@ -170,7 +188,39 @@
       color: var(--muted);
     }
     .pubs .links a:hover { color: var(--accent); border-color: var(--accent); text-decoration: none; }
-    .pubs .me { background: linear-gradient(transparent 60%, #fff3a8 60%); padding: 0 1px; }
+    .pubs .me { font-weight: 600; }
+
+    /* Collapsible abstract toggle under each publication */
+    .pubs details.abstract {
+      margin-top: 10px;
+      border: 1px solid var(--rule);
+      border-radius: 8px;
+      overflow: hidden;
+    }
+    .pubs details.abstract summary {
+      cursor: pointer;
+      list-style: none;
+      display: flex; align-items: center; justify-content: space-between;
+      padding: 7px 12px;
+      font-size: 13px; font-weight: 600; color: var(--muted);
+      background: var(--bg-soft);
+      user-select: none;
+    }
+    .pubs details.abstract summary::-webkit-details-marker { display: none; }
+    .pubs details.abstract summary:hover { color: var(--accent); }
+    .pubs details.abstract summary::after {
+      content: "▾";
+      font-size: 12px;
+      transition: transform 0.15s ease;
+    }
+    .pubs details.abstract[open] summary::after { transform: rotate(180deg); }
+    .pubs details.abstract .abstract-body {
+      margin: 0;
+      padding: 12px 12px 14px;
+      font-size: 13.5px;
+      color: var(--muted);
+      border-top: 1px solid var(--rule);
+    }
 
     /* Status pill for forthcoming / under review */
     .status {
@@ -185,6 +235,28 @@
 
     /* Subsection heading inside a section */
     h3.sub { margin: 18px 0 8px; font-size: 15px; font-weight: 600; color: var(--muted); text-transform: uppercase; letter-spacing: 0.04em; }
+
+    /* Research tab: no more "Research" h2, so Publications takes over as the
+       section's main heading (matches the old h2 size); Working Papers is
+       bumped up too so it still reads as a major subsection. */
+    h3.sub.pubs-heading {
+      margin: 0 0 20px;
+      font-size: 22px;
+      font-weight: 600;
+      color: var(--text);
+      text-transform: none;
+      letter-spacing: -0.005em;
+    }
+    h3.sub.wp-heading {
+      margin: 32px 0 10px;
+      padding-top: 24px;
+      border-top: 1px solid var(--rule);
+      font-size: 19px;
+      font-weight: 700;
+      color: var(--text);
+      text-transform: none;
+      letter-spacing: -0.005em;
+    }
 
     /* News list */
     .news li { grid-template-columns: 110px 1fr; }
@@ -201,57 +273,80 @@
     <a href="#about">About</a>
     <a href="#research">Research</a>
     <a href="#teaching">Teaching</a>
-    <a href="#others">Others</a>
+    <a href="#others">Awards/Grants &amp; Service</a>
     <a href="#cv">CV</a>
   </div>
 </nav>
 
-<main class="container">
+<main class="layout">
 
-  <!-- ============== HERO ============== -->
-  <header class="hero">
-    <!-- Replace the placeholder with: <img src="profile.jpg" alt="Jieun Lee"> -->
-    <div class="hero-photo"><img src="profile.jpg" alt="Jieun Lee"></div>
-    <div>
-      <h1>Jieun Lee</h1>
-      <p class="role">Ph.D. Candidate, Political Science</p>
-      <p class="affil">University of California, Riverside</p>
-      <div class="icons">
-        <a href="mailto:jlee1433@ucr.edu" title="Email" aria-label="Email"><i class="fa-solid fa-envelope"></i></a>
-        <a href="cv.pdf" title="CV (PDF)" aria-label="CV"><i class="fa-solid fa-file-lines"></i></a>
-        <a href="https://scholar.google.com/citations?user=YOUR-SCHOLAR-ID" title="Google Scholar" aria-label="Scholar"><i class="fa-brands fa-google-scholar"></i></a>
-        <a href="https://orcid.org/0009-0005-8654-1688" title="ORCID" aria-label="ORCID"><i class="fa-brands fa-orcid"></i></a>
-        <a href="https://github.com/jlee1433.github.io" title="GitHub" aria-label="GitHub"><i class="fa-brands fa-github"></i></a>
-      </div>
+  <!-- ============== SIDEBAR (profile only) ============== -->
+  <aside class="sidebar">
+    <div class="avatar"><img src="profile.jpg" alt="Jieun Lee"></div>
+    <h1>Jieun Lee</h1>
+    <p class="role">Ph.D. Candidate<br>Political Science</p>
+    <p class="meta-line"><i class="fa-solid fa-location-dot"></i> Riverside, CA, USA</p>
+    <p class="meta-line"><i class="fa-solid fa-landmark"></i> UC Riverside (UCR)</p>
+    <div class="contact-list">
+      <a href="mailto:jlee1433@ucr.edu"><i class="fa-solid fa-envelope"></i> Email</a>
+      <a href="https://scholar.google.com/citations?user=YOUR-SCHOLAR-ID"><i class="fa-brands fa-google-scholar"></i> Google Scholar</a>
+      <a href="https://orcid.org/0009-0005-8654-1688"><i class="fa-brands fa-orcid"></i> ORCID</a>
+      <a href="https://github.com/jlee1433.github.io"><i class="fa-brands fa-github"></i> GitHub</a>
+      <a href="https://www.linkedin.com/in/jieun-lee-143a13372"><i class="fa-brands fa-linkedin-in"></i> LinkedIn</a>
     </div>
-  </header>
+  </aside>
+
+  <!-- ============== CONTENT ============== -->
+  <div class="content">
 
   <!-- ============== ABOUT ============== -->
   <section id="about" class="tab-section active">
     <h2>About</h2>
     <p>
-      I am a Ph.D. candidate in the Department of Political Science at UC Riverside, with research interests in American public opinion and political behavior. My dissertation, <em>Consequences of and Remedies for Partisan Dehumanization in the U.S.</em>, is co-chaired by Jennifer Merolla and Daniel Biggers, with Cindy Kam, and supported by <em>Russell Sage Foundation</em> and <em>Center for Ideas and Society</em>.
+      I am a Ph.D. candidate in the Department of Political Science at UC Riverside, expected to graduate at the end of this academic year. My research examines how psychological, economic, and informational factors shape political and policy attitudes, and what these dynamics mean for public trust in and commitment to democratic institutions. Broadly, my research agenda spans political behavior, public opinion, political psychology, and public policy, with a methodological focus on causal inference and survey and experimental methods.
     </p>
     <p>
-      My work has appeared in <em>PS: Political Science &amp; Politics</em>, with a recent paper conditionally accepted at the <em>American Political Science Review</em>. I do survey experiments, causal inference, and spatial analysis to study how Americans' social identities shape attitudes toward democracy, redistribution, and immigration.
+      My dissertation project examines the consequences of and remedies for partisan dehumanization in the U.S., and is generously supported by a campus-wide dissertation fellowship from the UCR Graduate Division, a research grant from the <em>Center for Ideas and Society</em>, and a Doctoral Dissertation Grant from the <em>Russell Sage Foundation</em>. My other research articles have appeared in <em>PS: Political Science &amp; Politics</em>, with a recent paper conditionally accepted at the <em>American Political Science Review</em>.
     </p>
     <p>
-      I expect to be on the academic job market in 2026–2027.
+      I am currently on the AY 2026–2027 academic job market.
     </p>
   </section>
 
   <!-- ============== RESEARCH (Publications + Working Papers + Presentations) ============== -->
   <section id="research" class="tab-section">
-    <h2>Research</h2>
 
-    <h3 class="sub">Peer-Reviewed Articles</h3>
+    <h3 class="sub pubs-heading">Publications</h3>
     <ul class="pubs">
+      <li>
+        <div class="title">Economic Self-Interest and Support for Redistribution: New Evidence Using Revealed-Preference Election Results Data</div>
+        <div class="meta"><span class="me">Lee, J.</span>, Baldwin, E. G., Markarian, G. A., &amp; Newman, B. J. <em>American Political Science Review.</em><span class="status">Conditionally Accepted</span></div>
+        <details class="abstract">
+          <summary>Abstract</summary>
+          <p class="abstract-body">A formidable corpus of scholarship explores the role of economic self-interest in shaping
+public support for redistribution. One striking feature of this literature is its near exclusive
+reliance on reported preferences in surveys, with little-to-no research analyzing revealed
+preferences in the form of actual voting on redistribution. Leveraging 8 redistributive ballot
+initiatives across 6 American states and a total of N=73,053 observations of revealed support
+for redistribution, we uncover consistent evidence that the economic standing of precinct
+voters is systematically related to their support for redistribution. We find that lower to
+upper-middle income precincts are each significantly more supportive of redistribution than
+upper income precincts, with pronounced decreases in support associated with the increasing
+prevalence of high-income households subject to proposed tax increases. Finally, we observe
+the largest class differential in support for redistribution in more heavily Republican precincts.</p>
+        </details>
+      </li>
       <li>
         <div class="title">American Immigration Attitudes and NIMBYism: Do Immigration Preferences Vary by Scale?</div>
         <div class="meta"><span class="me">Lee, J.</span> &amp; Muttram, H. G. (2025). <em>PS: Political Science &amp; Politics</em>, 59(2), 320–328.</div>
         <div class="links">
           <a href="https://doi.org/10.1017/S1049096525101467"><i class="fa-solid fa-link"></i> DOI</a>
+          <a href="https://dataverse.harvard.edu/dataset.xhtml?persistentId=doi:10.7910/DVN/6TSZXR&amp;version=DRAFT"><i class="fa-solid fa-database"></i> Dataverse</a>
         </div>
+        <details class="abstract">
+          <summary>Abstract</summary>
+          <p class="abstract-body">In recent years, prominent Republican elites have instituted statewide migrant transportation programs in which asylum-seeking migrants are “bused” to liberal cities across the country. These programs are often justified by invoking NIMBYism (not-inmy-backyard), suggesting that when people must consider the effects of immigrationpolicy in terms of their community, their attitudes toward immigrants will vary. Despitethis, extant scholarship has yet to document the extent to which American immigrationpreferences vary by spatial scale and gives no expectation about how important anyvariation is relative to other determinants of immigration attitudes. Findings from aconjoint experiment reveal that Americans, on average, oppose immigrants proposed tomove into their neighborhoods, but spatial scale does not alter considerations at thenational, state, or city level. The relative importance of this NIMBY effect, however, ismodest compared to a host of other individual-level characteristics of an immigrant.Moreover, despite elite claims of “liberal hypocrisy” in immigration, we find no evidencethat the NIMBY effect varies by partisanship. Both Democrats and Republicans exhibitmodest preferences against immigrants expected to move to their neighborhoods.</p>
+        </details>
       </li>
       <li>
         <div class="title">Economic Status and Voting Choices in the 2017 South Korean Presidential Election <em style="color:#888;font-style:normal">(in Korean)</em></div>
@@ -259,6 +354,10 @@
         <div class="links">
           <a href="https://www.kci.go.kr/kciportal/ci/sereArticleSearch/ciSereArtiView.kci?sereArticleSearchBean.artiId=ART002645638"><i class="fa-solid fa-link"></i> DOI</a>
         </div>
+        <details class="abstract">
+          <summary>Abstract</summary>
+          <p class="abstract-body">It is conventional wisdom in South Korean politics that class politics does not work. However, this paper argues that voters cast their ballots in accordance with their economic status, analyzing the 2017 South Korean presidential election. While existing literature focused mainly on household incomes, this paper also pays attention to wealth. We categorize four different economic groups: low wealth-low income, high wealth-low income, low wealth–high income, high wealth-high income. Here are some key findings. First, voters consider both wealth and income when it comes to judging their subjective class identity. However, when either the level of wealth or income is low, a substantial amount of voters regard themselves as lower class. Second, voters have different political orientations depending on their level of wealth and income. Third, voting choices varied according to the level of wealth. Support for a progressive candidate is significantly higher among the low wealth groups than among the high wealth groups, regardless of the level of household income. As economic inequality is kept worsening, it is likely that the class will gain more political significance in Korean politics.</p>
+        </details>
       </li>
       <li>
         <div class="title">Europeanization of Gender Equality Policy in Poland and Lithuania <em style="color:#888;font-style:normal">(in Korean)</em></div>
@@ -266,77 +365,76 @@
         <div class="links">
           <a href="https://www.kci.go.kr/kciportal/ci/sereArticleSearch/ciSereArtiView.kci?sereArticleSearchBean.artiId=ART002319274"><i class="fa-solid fa-link"></i> DOI</a>
         </div>
+        <details class="abstract">
+          <summary>Abstract</summary>
+          <p class="abstract-body">
+This paper aims to examine the factors that lead differences among member states in the process of europeanization, which the policies of the member states converge to the EU policies. For this, we analyzed the case of transposing 2006/54/EC directive, a representative gender equality policy, in Poland and Lithuania. While Lithuania has completed transposition within deadline, Poland has transposed it after the deadline. The factors affecting the europeanization of gender equality policy can be divided into two categories, existing domestic order and domestic actor. For existing domestic order, we considered the social status of women, and similarity in relevant gender equality law between EU and member state. And also citizen’s attitudes towards europeanization in general. And state’s government and women’s organization have considered as domestic actors. There was no significant difference in the social status of women in the two countries. However, in Lithuania, it has been shown that there were less institutional misfit between EU and relevant domestic laws, also citizens attitudes towards EU were more favorable compare to Poland in general. Regarding domestic actors, efforts of women"s organizations to enhance gender equality were the common factor. The difference lies with government’s attitude toward promotion of gender equality policy and their willingness to cooperate with women’s organization. Therefore, it is concluded that both domestic order similar to EU, and government that is willing to communicate with women"s organizations and promote gender equality policy are important factors for europeanization in gender equality policy.</p>
+        </details>
       </li>
     </ul>
 
-    <h3 class="sub">Forthcoming / Conditionally Accepted</h3>
+    <h3 class="sub wp-heading">Working Papers</h3>
     <ul class="pubs">
       <li>
-        <div class="title">Economic Self-Interest and Support for Redistribution: New Evidence Using Revealed-Preference Election Results Data</div>
-        <div class="meta"><span class="me">Lee, J.</span>, Baldwin, E. G., Markarian, G. A., &amp; Newman, B. J. <em>American Political Science Review.</em><span class="status">Conditionally Accepted</span></div>
-      </li>
-    </ul>
-
-    <h3 class="sub">Working Papers</h3>
-    <ul class="pubs">
-      <li>
-        <div class="title">Partisan Dehumanization and Its Negative Correlates: From Anti-democratic Attitudes to Political Evaluations</div>
+        <div class="title">Partisan Dehumanization and Its Negative Consequences: From Anti-democratic Attitudes to Political Evaluations</div>
         <div class="meta"><span class="me">Lee, J.</span> <span class="status review">Under Review</span></div>
+        <details class="abstract">
+          <summary>Abstract</summary>
+          <p class="abstract-body">The use of dehumanizing rhetoric against political opponents is increasingly common in U.S. politics. This phenomenon, partisan dehumanization, refers to perceiving members of the opposing party as less human than one’s own. How, and to what extent, does partisan dehumanization increase negative political attitudes toward the out-party and the political system? I argue that greater dehumanization predicts more severe antidemocratic attitudes and more negative evaluations of the political system. Using observational survey data from the 2024 CES (Study1) and a survey experiment that randomly exposes partisans to dehumanizing versus non-dehumanizing rhetoric about out-partisans (Study 2), I find that greater engagement in partisan dehumanization increases the extent to which people blame out-partisans for negative outcomes (i.e., scapegoating) and the willingness to violate democratic norms. I find little to no relationship between partisan dehumanization and support for political violence, trust in government, or satisfaction with democracy. These findings offer the first causal evidence on the strength and scope of partisan dehumanization’s effects on important political outcomes.</p>
+        </details>
+      </li>
+      <li>
+        <div class="title">Plainly Speaking: Improving Engagement with, Evaluations of, and Trust in (Political Science) Research</div>
+        <div class="meta">Brookes, M., Dionne, K. Y., <span class="me">Lee, J.</span>, &amp; Merolla, J. L. <em>ANNALS of the American Academy of Political and Social Science.</em><span class="status">Selected for Inclusion</span></div>
+        <details class="abstract">
+          <summary>Abstract</summary>
+          <p class="abstract-body">We conducted a science communication experiment designed to increase public engagement with, positive evaluations of, and trust in scientific research. We focused on political science, a field that is relatively poorly regarded by the public (Gligorić et al. 2024) and has historically faced political challenges to its federal funding (Uscinski and Klofstad 2013). Our study thus provides a hard test of the effectiveness of scientific communication: If communicating research from a relatively unpopular social science field can improve public attitudes toward science and scientists, this would suggest similar interventions from other, more favorably regarded fields may be at least as effective in strengthening public trust in science. Our study also speaks directly to a growing area of scholarship concerned with how political scientists communicate research and engage audiences beyond academia (Hochschild 2015; Lupia and Aldrich 2015; Tama, Rublee, and Urban 2024). Our study’s findings have implications for citizens’ evaluations of political science research, which is particularly important given the field’s role in understanding consequential domestic and international problems, including development, conflict, terrorism, and the conditions that foster government accountability, responsiveness, and public welfare. </p>
+        </details>
       </li>
       <li>
         <div class="title">Framing Research as DEI-Related Increases Approval of Trump's Cuts to Federal Funding</div>
         <div class="meta"><span class="me">Lee, J.</span>, Merolla, J. L., Dionne, K. Y., &amp; Brookes, M. <span class="status review">Under Review</span></div>
+        <details class="abstract">
+          <summary>Abstract</summary>
+          <p class="abstract-body">Cutting funds for academic research threatens scientific advancements and is unpopular. So how has the Trump Administration managed to protect against political backlash while pursuing aggressive reductions in funding university research? One strategy has been to politicize higher education institutions by portraying them as hotbeds of liberal ideology. Conservative commentators specifically call out campus initiatives to promote diversity, equity, and inclusion (DEI) as examples of promoting a radical, left-wing agenda and reasons for supporting funding cuts. In a nationally representative survey experiment administered by YouGov to 1,200 adult U.S. citizens in late June and early July 2025, we measured public approval of the Trump administration’s cuts to government funding of academic research. We randomly assigned whether the question about cutting funding of academic research mentioned DEI. Most respondents (50%) disapproved of the Trump Administration’s cuts to academic research, but DEI framing nudged people higher up on the approval scale – an effect that is statistically significant across our sample except among Democrats.
+</p>
+        </details>
       </li>
       <li>
         <div class="title">Citizen Support for Direct Democracy Backsliding in the U.S.</div>
-        <div class="meta">Biggers, D. R. &amp; <span class="me">Lee, J.</span> <span class="status draft">Draft on request</span></div>
+        <div class="meta">Biggers, D. R. &amp; <span class="me">Lee, J.</span> <span class="status review">Under Review</span></div>
+        <details class="abstract">
+          <summary>Abstract</summary>
+          <p class="abstract-body">We extend work on attitudes toward democratic backsliding by investigating sup-
+port for direct democracy backsliding, which hinders citizens’ abilities to alter policy
+via the ballot. In doing so, we assess citizen tolerance of restricting (majoritarian)
+democratic governance when the policy costs of opposing backsliding are lower than in
+many other contexts. Across three survey experiments, we find that both Republicans
+and Democrats are more supportive of direct democracy backsliding when pursued by
+their party. This is true even when primed about the anti-democratic nature of these
+restrictions and when backsliding would occur only outside their state (which provides
+minimal potential policy benefits). Only when we explicitly note the anti-democratic
+nature of the changes in the context of imposing them on another state are Republi-
+cans (but not Democrats) no more likely to support backsliding when proposed by co-
+partisans. Our results have important implications for understanding when citizens
+accept democratic norm violations.</p>
+        </details>
       </li>
       <li>
         <div class="title">Do People Care about Care? Priming Caregiving During the Pandemic and Support for Social Welfare Policies</div>
-        <div class="meta"><span class="me">Lee, J.</span>, Merolla, J. L., Greenlee, J. S., Cargile, I. A. M., &amp; VanSickle-Ward, R. <span class="status draft">Draft on request</span></div>
-      </li>
-      <li>
-        <div class="title">Plainly Speaking: How Scientific Communication of Political Science Research Can Increase Trust in Science</div>
-        <div class="meta">Merolla, J. L., Dionne, K. Y., Brookes, M., &amp; <span class="me">Lee, J.</span></div>
+        <div class="meta"><span class="me">Lee, J.</span>, Merolla, J. L., Greenlee, J. S., Cargile, I. A. M., &amp; VanSickle-Ward, R. <span class="status review">Under Review</span></div>
+        <details class="abstract">
+          <summary>Abstract</summary>
+          <p class="abstract-body">The COVID-19 pandemic made stark what little assistance government provides to individuals who care for their loved ones. In this paper, we ask whether prompting people who are caregivers to think about their caregiving during the pandemic increases support for government spending on social support policies, and whether these effects vary by gender. We argue that making caregiving salient increases support for policies that provide more resources for caregiving and extend to policies that help the broader community. We propose two mechanisms that might lead to increased support: self-interest and gender role socialization. We make use of a pre-registered original experiment fielded with a diverse sample of YouGov panelists in the summer of 2021 in which we randomly assigned whether respondents were asked questions about their experiences with caregiving during the pandemic prior to a battery of government spending questions. Our findings show that priming caregiving increases support for both types of policies, primarily among women. Additional probing shows that the treatment effect is also significant among women who are not caregivers, though it is not significant among men who are caregivers. This suggests that the effects are more likely driven by gender role socialization rather than self-interest.</p>
+        </details>
       </li>
       <li>
         <div class="title">Dehumanization of Immigrants and Immigration Attitudes in the U.S.</div>
         <div class="meta"><span class="me">Lee, J.</span>, Merolla, J. L., &amp; Muttram, H. G.</div>
       </li>
       <li>
-        <div class="title">Party Position and Party Leader Cue: Do People Follow Party Leader When They Claim Party Position Across Ideology?</div>
-        <div class="meta">Kim, D.-H. &amp; <span class="me">Lee, J.</span></div>
-      </li>
-      <li>
         <div class="title">From Publication to Public: A Multi-Arm Field Experiment on Scientific Communication and Scholarly Impact</div>
         <div class="meta">Dionne, K. Y., Merolla, J. L., Brookes, M., &amp; <span class="me">Lee, J.</span></div>
-      </li>
-    </ul>
-
-    <h3 class="sub">Conference Presentations</h3>
-    <ul class="entries">
-      <li>
-        <span class="year">2025</span>
-        <span class="body">
-          "Political Consequences of Partisan Dehumanization in the U.S." — ISPP; MPSA<br>
-          "American Immigration Attitudes and NIMBYism" — Southern California Political Behavior Conference, Riverside, CA
-        </span>
-      </li>
-      <li>
-        <span class="year">2024</span>
-        <span class="body">
-          "American Immigration Attitudes and NIMBYism" — UCR Mass Behavior Workshop, Riverside, CA<br>
-          "Citizen Support for Direct Democracy Backsliding in the U.S." — APSA<br>
-          "Prime and Effect: Priming Caregiving During the Pandemic and Support for Social Welfare Policies" — MPSA
-        </span>
-      </li>
-      <li>
-        <span class="year">2021</span>
-        <span class="body">"The Blue House E-petition System of Korea: A New Form of Going Public and Its Political Effects" — Korean Association of Party Studies Spring Conference, Virtual</span>
-      </li>
-      <li>
-        <span class="year">2017</span>
-        <span class="body">"Europeanization of Gender Equality Policy in Poland and Lithuania" — The 2018 Next Generation Social Scientist Academic Conference, Seoul, South Korea</span>
       </li>
     </ul>
   </section>
@@ -344,11 +442,10 @@
 
   <!-- ============== TEACHING ============== -->
   <section id="teaching" class="tab-section">
-    <h2>Teaching</h2>
 
-    <h3 class="sub">Instructor</h3>
+    <h3 class="sub">Instructor of Record</h3>
     <ul class="entries">
-      <li><span class="year">2026 Summer</span><span class="body">Intro to American Politics, UC Riverside</span></li>
+      <li><span class="year">2026 Summer</span><span class="body">American Politics</span></li>
       <li><span class="year">2023–2025</span><span class="body">Quant Camp for Incoming Graduate Students, UCR Graduate Division</span></li>
     </ul>
 
@@ -365,7 +462,6 @@
 
   <!-- ============== OTHERS (Awards & Grants + Service) ============== -->
   <section id="others" class="tab-section">
-    <h2>Others</h2>
 
     <h3 class="sub">Awards &amp; Grants</h3>
     <ul class="entries">
@@ -381,14 +477,20 @@
 
     <h3 class="sub">Service — Reviewer</h3>
     <ul class="entries">
-      <li><span class="year">2026</span><span class="body"><em>Journal of Migration and Ethnic Studies</em></span></li>
+      <li><span class="year"></span><span class="body"><em>Political Psychology, the Journal of Migration and Ethnic Studies</em></span></li>
       <li><span class="year">2025</span><span class="body">Conference Abstract Reviewer, American Association for Public Opinion Research</span></li>
     </ul>
 
     <h3 class="sub">Service — Lab Management</h3>
     <ul class="entries">
       <li><span class="year">AY 2025–26</span><span class="body">Social Sciences Laboratory, UC Riverside — Lab Manager</span></li>
-      <li><span class="year">2024 Summer</span><span class="body">Identity and Politics Lab, UC Riverside — Lab Manager</span></li>
+      <li><span class="year">2024, 2026 Summer</span><span class="body">Identity and Politics Lab, UC Riverside — Lab Manager</span></li>
+    </ul>
+
+    <h3 class="sub">Service — Others</h3>
+    <ul class="entries">
+      <li><span class="year">AY 2025–26</span><span class="body">Graduate Student Researcher, MSIRA (Minority Serving Institution Research Academy)</span></li>
+      <li><span class="year">AY 2025–26</span><span class="body">Survey Researcher, UCR Information Technology Solutions</span></li>
     </ul>
   </section>
 
@@ -397,12 +499,15 @@
     <h2>CV</h2>
     <p>
       <a href="cv.pdf" target="_blank"><i class="fa-solid fa-file-pdf"></i> Download PDF</a>
-      &nbsp;·&nbsp; For inquiries: <a href="mailto:jlee1433@ucr.edu">jlee1433@ucr.edu</a>
+      &nbsp;·&nbsp; Contact: <a href="mailto:jlee1433@ucr.edu">jlee1433@ucr.edu</a>
     </p>
     <div class="pdf-frame">
       <iframe src="cv.pdf" title="Jieun Lee CV" loading="lazy"></iframe>
     </div>
   </section>
+
+  </div>
+  <!-- ============== END CONTENT ============== -->
 
 </main>
 
