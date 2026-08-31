@@ -5,6 +5,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Jieun Lee (UCR)</title>
   <meta name="description" content="Jieun Lee, Ph.D. Candidate in Political Science at UC Riverside. Research on partisan dehumanization, immigration attitudes, and American political behavior.">
+  <link rel="icon" type="image/svg+xml" href="data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZpZXdCb3g9IjAgMCA2NCA2NCI+CiAgPHJlY3Qgd2lkdGg9IjY0IiBoZWlnaHQ9IjY0IiByeD0iMTQiIGZpbGw9IiNmZmZmZmYiLz4KICA8ZyBmaWxsPSIjMGU0YThhIj4KICAgIDxwb2x5Z29uIHBvaW50cz0iMzIsMTQgNTgsMjYgMzIsMzggNiwyNiIvPgogICAgPHBhdGggZD0iTTE4IDMwIEwxOCA0MiBDMTggNDcgMjQuNSA1MSAzMiA1MSBDMzkuNSA1MSA0NiA0NyA0NiA0MiBMNDYgMzAgTDMyIDM3IFoiLz4KICAgIDxyZWN0IHg9IjU2LjUiIHk9IjI2IiB3aWR0aD0iMi4yIiBoZWlnaHQ9IjE2IiByeD0iMS4xIi8+CiAgICA8Y2lyY2xlIGN4PSI1Ny42IiBjeT0iNDQiIHI9IjIuNiIvPgogIDwvZz4KPC9zdmc+Cg==">
 
   <!-- Font Awesome (icons for email, GitHub, ORCID, etc.) -->
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
@@ -261,6 +262,12 @@
     /* News list */
     .news li { grid-template-columns: 110px 1fr; }
 
+    /* Public Writing list */
+    .writing-list { list-style: none; padding: 0; margin: 0; }
+    .writing-list li { padding: 12px 0; border-bottom: 1px dashed var(--rule); }
+    .writing-list li:last-child { border-bottom: 0; }
+    .writing-list a { font-weight: 600; }
+
     /* Footer */
     footer { padding: 40px 0 60px; color: var(--muted); font-size: 13px; text-align: center; }
     footer a { color: var(--muted); }
@@ -274,6 +281,7 @@
     <a href="#research">Research</a>
     <a href="#teaching">Teaching</a>
     <a href="#others">Awards/Grants &amp; Service</a>
+    <a href="#publicwriting">Public Writing</a>
     <a href="#cv">CV</a>
   </div>
 </nav>
@@ -302,16 +310,16 @@
   <section id="about" class="tab-section active">
     <h2>About</h2>
     <p>
-      I am a Ph.D. candidate in the Department of Political Science at UC Riverside, expected to graduate at the end of this academic year. My broad research agenda spans political behavior, public opinion, political psychology, and public policy, with a methodological focus on causal inference and survey and experimental methods.
+      I am a Ph.D. candidate in Political Science at UC Riverside, expected to graduate at the end of this academic year. My broad research agenda spans political behavior, public opinion, political psychology, and public policy. I employ a variety of methodological tools, including statistical analysis, causal inference, spatial analysis, survey research, and experimental designs. I also have substantial experience in large-scale data collection (e.g., field experiments and administrative data) and programming skills in R.
     </p>
     <p>
       My dissertation project examines the consequences of and remedies for partisan dehumanization (the perception that out-partisans are less human than co-partisans) in the U.S. It is generously supported by a campus-wide dissertation fellowship from the UCR Graduate Division, a research grant from the <em>Center for Ideas and Society</em>, and a Doctoral Dissertation Grant from the <em><a href="https://www.russellsage.org/research/grants/political-consequences-and-remedies-partisan-dehumanization-us">Russell Sage Foundation</a></em>.
     </p>
     <p>
-      Besides my dissertation, I am also interested in how self-interest shapes individual policy attitudes, and how the public reacts to threats to democratic institutions. My research has appeared in <em>PS: Political Science &amp; Politics</em>, with a recent paper conditionally accepted at the <em>American Political Science Review</em>.
+      Besides my dissertation, I am also interested in how self-interest shapes individual policy attitudes, and how the public reacts to threats to democratic institutions. My research has appeared in <em>PS: Political Science &amp; Politics</em>, with a forthcoming article in the <em>American Political Science Review</em> and a paper selected for inclusion in an issue of the <em>ANNALS of the American Academy of Political and Social Science</em>.
     </p>
     <p>
-      I am currently on the AY 2026–2027 academic job market.
+      I am currently on the academic job market.
     </p>
   </section>
 
@@ -322,7 +330,7 @@
     <ul class="pubs">
       <li>
         <div class="title">Economic Self-Interest and Support for Redistribution: New Evidence Using Revealed-Preference Election Results Data</div>
-        <div class="meta"><span class="me">Lee, J.</span>, Baldwin, E. G., Markarian, G. A., &amp; Newman, B. J. <em>American Political Science Review.</em><span class="status">Conditionally Accepted</span></div>
+        <div class="meta"><span class="me">Lee, J.</span>, Baldwin, E. G., Markarian, G. A., &amp; Newman, B. J. Forthcoming in <em>American Political Science Review</em>.</div>
         <details class="abstract">
           <summary>Abstract</summary>
           <p class="abstract-body">A formidable corpus of scholarship explores the role of economic self-interest in shaping
@@ -485,7 +493,7 @@ accept democratic norm violations.</p>
     <h3 class="sub">Service — Lab Management</h3>
     <ul class="entries">
       <li><span class="year">AY 2025–26</span><span class="body">Social Sciences Laboratory, UC Riverside — Lab Manager</span></li>
-      <li><span class="year">2024, 2026 Summer</span><span class="body">Identity and Politics Lab, UC Riverside — Lab Manager</span></li>
+      <li><span class="year">2024, 2026 Summer</span><span class="body">Identity Politics Lab, UC Riverside — Lab Manager</span></li>
     </ul>
 
     <h3 class="sub">Service — Others</h3>
@@ -494,6 +502,29 @@ accept democratic norm violations.</p>
       <li><span class="year">AY 2025–26</span><span class="body">Survey Researcher, UCR Information Technology Solutions</span></li>
     </ul>
   </section>
+
+  <!-- ============== PUBLIC WRITING ============== -->
+  <section id="publicwriting" class="tab-section">
+    <h2>Public Writing</h2>
+
+    <h3 class="sub">3Streams</h3>
+    <ul class="writing-list">
+      <li><a href="https://medium.com/3streams/polarization-reduces-trust-in-others-3c61448b7ee5?sharedUserId=jlee1433" target="_blank">Polarization Reduces Trust in Others</a></li>
+      <li><a href="https://medium.com/3streams/heres-why-we-see-so-many-narcissistic-politicians-31015712e5c0?sharedUserId=jlee1433" target="_blank">Here's Why We See So Many Narcissistic Politicians</a></li>
+      <li><a href="https://medium.com/3streams/can-peer-pressure-get-out-the-vote-21bde4f92d06?sharedUserId=jlee1433" target="_blank">Can Peer Pressure Get Out the Vote?</a></li>
+      <li><a href="https://medium.com/3streams/black-women-leaders-link-life-stories-to-policies-and-it-works-61d01ba8eea7?sharedUserId=jlee1433" target="_blank">Black Women Leaders Link Life Stories to Policies — and It Works</a></li>
+      <li><a href="https://medium.com/3streams/what-decides-pro-immigrant-outcomes-when-immigrants-miss-court-hearings-0cb0ac8bff93?sharedUserId=jlee1433" target="_blank">What Decides Pro-Immigrant Outcomes When Immigrants Miss Court Hearings</a></li>
+      <li><a href="https://medium.com/3streams/leaders-often-mistake-their-beliefs-for-public-opinion-98912cdc57ad?sharedUserId=jlee1433" target="_blank">Leaders Often Mistake Their Beliefs for Public Opinion</a></li>
+      <li><a href="https://medium.com/3streams/do-americans-share-the-same-political-value-structure-100956edce79?sharedUserId=jlee1433" target="_blank">Do Americans Share the Same Political Value Structure?</a></li>
+      <li><a href="https://medium.com/3streams/why-voters-overestimate-political-divides-0c1cf53ebf2e?sharedUserId=jlee1433" target="_blank">Why Voters Overestimate Political Divides</a></li>
+      <li><a href="https://medium.com/3streams/what-shapes-american-attitudes-toward-native-american-issues-3ff7adab80ec?sharedUserId=jlee1433" target="_blank">What Shapes American Attitudes Toward Native American Issues?</a></li>
+      <li><a href="https://medium.com/3streams/three-strategies-for-instructors-to-tackle-student-bias-in-the-classroom-859780a92622?sharedUserId=jlee1433" target="_blank">Three Strategies for Instructors to Tackle Student Bias in the Classroom</a></li>
+      <li><a href="https://medium.com/3streams/do-gender-quotas-influence-how-party-leaders-view-women-in-politics-0e4544f92d8a?sharedUserId=jlee1433" target="_blank">Do Gender Quotas Influence How Party Leaders View Women in Politics?</a></li>
+      <li><a href="https://medium.com/3streams/womens-empowerment-in-the-gulf-what-the-newspaper-headlines-reveal-c724a3b1b210?sharedUserId=jlee1433" target="_blank">Women's Empowerment in the Gulf: What the Newspaper Headlines Reveal</a></li>
+      <li><a href="https://medium.com/3streams/the-2020-us-election-when-forecasts-fell-short-a269db056c46?sharedUserId=jlee1433" target="_blank">The 2020 US Election: When Forecasts Fell Short</a></li>
+    </ul>
+  </section>
+  <!-- ============== END PUBLIC WRITING ============== -->
 
   <!-- ============== CV ============== -->
   <section id="cv" class="tab-section">
