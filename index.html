@@ -237,6 +237,31 @@
     /* Subsection heading inside a section */
     h3.sub { margin: 18px 0 8px; font-size: 15px; font-weight: 600; color: var(--muted); text-transform: uppercase; letter-spacing: 0.04em; }
 
+    /* Workshop groups (Teaching tab): tag label + its own entries list */
+    .ws-group { margin: 18px 0 22px; }
+    .ws-group:first-of-type { margin-top: 8px; }
+    .ws-tag {
+      display: inline-block;
+      font-size: 12px; font-weight: 700;
+      padding: 3px 11px; border-radius: 999px;
+      margin-bottom: 8px;
+      letter-spacing: 0.02em;
+    }
+    .ws-tag-r { background: #eaf3ff; color: var(--accent); }
+    .ws-tag-qualtrics { background: #fdeee0; color: #a04a00; }
+    .ws-group .entries { margin-top: 2px; }
+
+    /* Context note next to the "Workshops" heading */
+    .ws-context {
+      display: inline-block;
+      font-size: 11px; font-weight: 600;
+      text-transform: none; letter-spacing: normal;
+      padding: 2px 9px; border-radius: 999px;
+      background: var(--bg-soft); color: var(--muted);
+      border: 1px solid var(--rule);
+      margin-left: 8px; vertical-align: 2px;
+    }
+
     /* Research tab: no more "Research" h2, so Publications takes over as the
        section's main heading (matches the old h2 size); Working Papers is
        bumped up too so it still reads as a major subsection. */
@@ -468,6 +493,28 @@ accept democratic norm violations.</p>
       <li><span class="year">2023</span><span class="body">Labor and Globalization</span></li>
       <li><span class="year">2022, 2024</span><span class="body">Theory and Methodology of Political Science</span></li>
     </ul>
+
+    <h3 class="sub">Workshops <span class="ws-context">Facilitated as Social Sciences Laboratory Lab Manager</span></h3>
+
+    <div class="ws-group">
+      <span class="ws-tag ws-tag-r">R</span>
+      <ul class="entries">
+        <li><span class="year">Summer 2026</span><span class="body">Cleaning and Recoding Variables</span></li>
+        <li><span class="year">Summer 2026</span><span class="body">Intermediate Data Wrangling — Joining and Aggregating Data</span></li>
+        <li><span class="year">Summer 2026</span><span class="body">Data Visualization in R</span></li>
+        <li><span class="year">Spring 2026</span><span class="body">Cleaning and Recoding Variables</span></li>
+        <li><span class="year">Winter 2026</span><span class="body">Intro to R for Social Scientists</span></li>
+      </ul>
+    </div>
+
+    <div class="ws-group">
+      <span class="ws-tag ws-tag-qualtrics">Qualtrics</span>
+      <ul class="entries">
+        <li><span class="year">Spring 2026</span><span class="body">Programming Survey Designs in Qualtrics 2: Embedded Data and Advanced Survey Logic</span></li>
+        <li><span class="year">Winter 2026</span><span class="body">Programming Survey Designs in Qualtrics 1: Introduction</span></li>
+        <li><span class="year">Winter 2026</span><span class="body">Programming Survey Designs in Qualtrics 2: Embedded Data and Advanced Survey Logic</span></li>
+      </ul>
+    </div>
   </section>
 
   <!-- ============== OTHERS (Awards & Grants + Service) ============== -->
